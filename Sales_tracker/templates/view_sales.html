@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Sales Report</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Sale Date</th>
+        <th>Total Amount</th>
+        <th>Payment Method</th>
+        <th>Staff Member</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for sale in sales %}
+        <tr>
+          <td>{{ sale.sale_date }}</td>
+          <td>{{ sale.total_amount }}</td>
+          <td>{{ sale.payment_method }}</td>
+          <td>{{ sale.staff_member }}</td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="4">No sales yet</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

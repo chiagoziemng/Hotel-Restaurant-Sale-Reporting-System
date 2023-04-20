@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}Hotel Restaurant Sale Reporting System{% endblock %}</title>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="{% url 'add_sale' %}">Add Sale</a></li>
+        <li><a href="{% url 'view_sales' %}">View Sales</a></li>
+        <li><a href="{% url 'manage_inventory' %}">Manage Inventory</a></li>
+        {% if request.user.is_manager %}
+          <li><a href="{% url 'manage_staff' %}">Manage Staff</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+    {% block content %}{% endblock %}
+  </body>
+</html>

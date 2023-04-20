@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Manage Staff Members</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add Staff Member</button>
+  </form>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Role</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for staff_member in staff_members %}
+        <tr>
+          <td>{{ staff_member.name }}</td>
+          <td>{{ staff_member.email }}</td>
+          <td>{{ staff_member.get_role_display }}</td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="3">No staff members yet</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Manage Inventory</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add Item</button>
+  </form>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Reorder Level</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in inventory %}
+        <tr>
+          <td>{{ item.name }}</td>
+          <td>{{ item.quantity }}</td>
+          <td>{{ item.reorder_level }}</td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="3">No inventory items yet</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

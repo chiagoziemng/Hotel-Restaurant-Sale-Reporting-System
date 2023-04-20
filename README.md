@@ -75,7 +75,7 @@ Based on the gathered requirements for the sale reporting system, the system arc
 
     Overall, the system architecture will be designed to ensure that the system is reliable, scalable, and secure. The system will be built using best practices in software engineering, including test-driven development and modular code design.
 
-Sure, let's begin with the backend design for the hotel restaurant sale reporting system.
+The backend design for the hotel restaurant sale reporting system.
 
     Database:
     The first step in building the backend is to design the database schema. Based on the requirements, we can define the following tables:
